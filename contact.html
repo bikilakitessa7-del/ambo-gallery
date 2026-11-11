@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Ambo University Photo Gallery</title>
+    
+    <style>
+        /* --- Global Styles --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Keeps footer at the very bottom */
+        }
+
+        /* --- Blue Header --- */
+        .site-header {
+            background-color: #154b9c; /* Ambo University Blue */
+            color: white;
+            padding: 25px 20px 20px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .site-header h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .site-header nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        .site-header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .site-header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Middle Content Area --- */
+        .main-content {
+            flex: 1; /* Pushes the footer down */
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* --- Footer Styling --- */
+        .yene-style-footer {
+            background-color: #151515;
+            color: #ffffff;
+            padding-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 0 30px 50px 30px;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: #9ba1a6;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 90%;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: #9ba1a6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-bottom p {
+            color: #6c757d;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-brand {
+                grid-column: span 2;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= BLUE HEADER ================= -->
+    <header class="site-header">
+        <div class="header-container">
+            <h1>Ambo University Photo Gallery</h1>
+            <nav>
+                <!-- Using standard # links -->
+                <a href="index.html#home">HOME</a>
+                <a href="index.html#about">ABOUT</a>
+                <a href="index.html#gallery">GALLERY</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================= MIDDLE CONTENT ================= -->
+    <div class="main-content">
+        <h2>Contact Us</h2>
+        <p>Call us at: <strong>+251917114034</strong></p>
+        <p>Email: info@ambogallery.com</p>
+    </div>
+
+    <!-- ================= DARK FOOTER ================= -->
+    <footer class="yene-style-footer">
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <h2>Ambo Gallery</h2>
+                <p>
+                    Ambo University Photo Gallery connects you with beautiful moments and memories. Every photo is reviewed and organized into special collections for you to explore.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>FOR VISITORS</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#gallery">All Photos</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>COLLECTIONS</h4>
+                <ul>
+                    <li><a href="index.html#gallery">Collection 1</a></li>
+                    <li><a href="index.html#gallery">Collection 2</a></li>
+                    <li><a href="index.html#gallery">Recent Uploads</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="index.html#about">About Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+        </div>
+    </footer>
+
+</body>
+</html>

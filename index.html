@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Ambo University Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <h1>Ambo University Photo Gallery</h1>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Content -->
+        <section class="home">
+            <div class="home-content">
+                <h2>Welcome to Ambo University Photo Gallery!</h2>
+            </div>
+        </section>
+
+        <!-- All 25 Photos Grid -->
+        <section class="gallery-section">
+            <div class="gallery">
+                <figure><img src="images/photo_2026-10-31_14-02-40 (2).jpg" alt="Photo 1" onclick="openHomePhoto(0)"><figcaption>New Class</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_14-02-40.jpg" alt="Photo 2" onclick="openHomePhoto(1)"><figcaption>gateway</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_14-02-19.jpg" alt="Photo 3" onclick="openHomePhoto(2)"><figcaption>Registral</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_14-01-27.jpg" alt="Photo 4" onclick="openHomePhoto(3)"><figcaption>Dorm</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_14-00-48.jpg" alt="Photo 5" onclick="openHomePhoto(4)"><figcaption>Around campus</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_13-59-48.jpg" alt="Photo 6" onclick="openHomePhoto(5)"><figcaption>Around campus</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_13-59-19.jpg" alt="Photo 7" onclick="openHomePhoto(6)"><figcaption>Around campus</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_13-58-54.jpg" alt="Photo 8" onclick="openHomePhoto(7)"><figcaption>New Class</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_13-58-23.jpg" alt="Photo 9" onclick="openHomePhoto(8)"><figcaption>Around Registral</figcaption></figure>
+                <figure><img src="images/photo_2026-10-31_13-57-56.jpg" alt="Photo 10" onclick="openHomePhoto(9)"><figcaption>New Building</figcaption></figure>
+                <figure><img src="images/images.jpg" alt="Photo 11" onclick="openHomePhoto(10)"><figcaption>Around campus</figcaption></figure>
+                <figure><img src="images/photo_2026-11-02_22-33-42.jpg" alt="Photo 12" onclick="openHomePhoto(11)"><figcaption>Dorm</figcaption></figure>
+                <figure><img src="images/photo_2026-11-02_22-33-48.jpg" alt="Photo 13" onclick="openHomePhoto(12)"><figcaption>Dorm</figcaption></figure>
+                <figure><img src="images/photo_2026-11-02_22-33-53.jpg" alt="Photo 14" onclick="openHomePhoto(13)"><figcaption>Around campus</figcaption></figure>
+                <figure><img src="images/photo_2026-11-02_22-33-58.jpg" alt="Photo 15" onclick="openHomePhoto(14)"><figcaption>Around Registral</figcaption></figure>
+                <figure><img src="images/photo_2026-11-02_22-34-04.jpg" alt="Photo 16" onclick="openHomePhoto(15)"><figcaption>Photo 16</figcaption></figure>
+                <figure><img src="images/photo_2026-11-02_22-34-10.jpg" alt="Photo 17" onclick="openHomePhoto(16)"><figcaption>Photo 17</figcaption></figure>
+                <figure><img src="images/photo_2026-11-02_22-34-15.jpg" alt="Photo 18" onclick="openHomePhoto(17)"><figcaption>Photo 18</figcaption></figure>
+                <figure><img src="images/photo_2026-11-03_00-19-21.jpg" alt="Photo 19" onclick="openHomePhoto(18)"><figcaption>Photo 19</figcaption></figure>
+                <figure><img src="images/photo_2026-11-03_00-19-30.jpg" alt="Photo 20" onclick="openHomePhoto(19)"><figcaption>Photo 20</figcaption></figure>
+                <figure><img src="images/photo_2026-11-03_00-19-36.jpg" alt="Photo 21" onclick="openHomePhoto(20)"><figcaption>Photo 21</figcaption></figure>
+                <figure><img src="images/photo_2026-11-03_00-19-41.jpg" alt="Photo 22" onclick="openHomePhoto(21)"><figcaption>Photo 22</figcaption></figure>
+                <figure><img src="images/photo_2026-11-03_00-19-47.jpg" alt="Photo 23" onclick="openHomePhoto(22)"><figcaption>Photo 23</figcaption></figure>
+                <figure><img src="images/photo_2026-11-03_00-19-57.jpg" alt="Photo 24" onclick="openHomePhoto(23)"><figcaption>Photo 24</figcaption></figure>
+                <figure><img src="images/photo_2026-11-03_00-20-14.jpg" alt="Photo 25" onclick="openHomePhoto(24)"><figcaption>Photo 25</figcaption></figure>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fullscreen Photo Viewer (Lightbox) -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-top" onclick="event.stopPropagation()">
+            <span id="photoCount"></span>
+            <button class="close" type="button" onclick="closeLightbox(event)">×</button>
+        </div>
+        <button class="prev" type="button" onclick="changeHomePhoto(-1, event)">❮</button>
+        <img id="lightboxImage" src="" alt="Enlarged photo" onclick="event.stopPropagation()">
+        <button class="next" type="button" onclick="changeHomePhoto(1, event)">❯</button>
+        <div class="thumbnail-list" id="thumbnailList" onclick="event.stopPropagation()"></div>
+    </div>
+
+    <!-- ================= NEW DARK FOOTER ================= -->
+    <footer class="yene-style-footer">
+        <div class="footer-container">
+            
+            <!-- Column 1 -->
+            <div class="footer-brand">
+                <h2>Ambo Gallery</h2>
+                <p>
+                    Ambo University Photo Gallery connects you with beautiful moments and memories. Every photo is reviewed and organized into special collections for you to explore.
+                </p>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-col">
+                <h4>FOR VISITORS</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">All Photos</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-col">
+                <h4>COLLECTIONS</h4>
+                <ul>
+                    <li><a href="gallery.html">Collection 1</a></li>
+                    <li><a href="gallery.html">Collection 2</a></li>
+                    <li><a href="gallery.html">Collection 3</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-col">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="about.html">About Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright -->
+        <div class="footer-bottom">
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+/* =====================================
+   GENERAL & RESET
+   ===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* =====================================
+   HEADER & NAVIGATION
+   ===================================== */
+header {
+    background: #172554;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+/* =====================================
+   HOMEPAGE BANNER
+   ===================================== */
+.home {
+    min-height: 350px;
+    background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url("images/photo_2026-10-31_14-02-40.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+
+.home-content h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.home-content p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.home-content a {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.home-content a:hover {
+    background: #1d4ed8;
+}
+
+/* =====================================
+   ABOUT & VIEWS
+   ===================================== */
+.about {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about p {
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+/* View Management (For JS switching) */
+.view {
+    min-height: 60vh;
+    padding: 20px;
+}
+
+/* =====================================
+   GALLERY GRIDS (Home & Collection Photos)
+   ===================================== */
+.gallery-section {
+    padding: 35px 5%;
+}
+
+.gallery-section h2 {
+    margin-bottom: 10px;
+    text-align: center; /* Centered title */
+}
+
+.gallery-section p {
+    text-align: center; /* Centered subtitle */
+    margin-bottom: 30px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 30px 0 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery figure {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.gallery figure img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.gallery figure img:hover {
+    opacity: 0.85;
+}
+
+.gallery figcaption {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* =====================================
+   ALBUM CARDS (Gallery Page Overview) 
+   ===================================== */
+/* --- THIS IS THE FIX FOR THE HORIZONTAL LAYOUT --- */
+.album-container, .collections-grid {
+    display: flex;
+    flex-direction: row;       /* Puts them in a horizontal row */
+    flex-wrap: wrap;           /* Allows wrapping on smaller screens */
+    justify-content: center;   /* Centers them in the middle of the page */
+    gap: 30px;                 /* Adds space between the cards */
+    margin-top: 30px;
+}
+
+.album-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 320px;              /* Fixed width for uniform cards */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.album-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.album-card h3 {
+    margin: 15px 15px 5px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #172554; /* Matches header blue */
+}
+
+.album-card button {
+    margin: 15px;
+    padding: 12px;
+    background: #172554;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+}
+
+.album-card button:hover {
+    background: #2563eb;
+}
+
+/* =====================================
+   BACK BUTTON (Collection View)
+   ===================================== */
+.back-button, .back-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.back-button:hover, .back-btn:hover {
+    background: #1d4ed8;
+}
+
+/* =====================================
+   LIGHTBOX (Fullscreen Photo Viewer)
+   ===================================== */
+.lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox img#lightboxImage {
+    max-width: 75%;
+    max-height: 70%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.lightbox-top {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    right: 25px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.lightbox button {
+    position: absolute;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox button:hover {
+    color: #60a5fa;
+}
+
+.close {
+    position: static !important; 
+    font-size: 45px;
+    line-height: 1;
+    padding: 0 10px;
+}
+
+.prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Thumbnails inside Lightbox */
+.thumbnail-list {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.thumbnail-list img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.5;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.thumbnail-list img:hover {
+    opacity: 0.8;
+}
+
+.thumbnail-list img.active {
+    opacity: 1;
+    border-color: #60a5fa;
+    transform: scale(1.05);
+}
+
+/* =====================================
+   NEW YENE-JOBS STYLE FOOTER
+   ===================================== */
+
+/* Top Contact Banner */
+.top-contact-banner {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    color: #333;
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-item .icon {
+    color: #d9534f; /* Reddish icon color */
+}
+
+/* Main Dark Footer */
+.yene-style-footer {
+    background-color: #151515; /* Almost black */
+    color: #ffffff;
+    padding-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 40px;
+}
+
+.yene-style-footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 0 30px 50px 30px;
+}
+
+/* Footer Brand Column */
+.footer-brand h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.footer-brand p {
+    color: #9ba1a6;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* Footer Links */
+.yene-style-footer .footer-col h4 {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.yene-style-footer .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.yene-style-footer .footer-col ul li {
+    margin-bottom: 15px;
+}
+
+.yene-style-footer .footer-col ul li a {
+    color: #9ba1a6;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.yene-style-footer .footer-col ul li a:hover {
+    color: #ffffff;
+}
+
+/* Footer Bottom Bar */
+.yene-style-footer .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.yene-style-footer .footer-bottom p {
+    color: #6c757d;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+   ===================================== */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery figure img {
+        height: 160px;
+    }
+
+    .home-content h2 {
+        font-size: 27px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+    
+    .lightbox img#lightboxImage {
+        max-width: 95%;
+    }
+    
+    .thumbnail-list img {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Footer responsive for tablets */
+    .top-contact-banner {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .yene-style-footer .footer-container {
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    .footer-brand {
+        grid-column: span 2; 
+    }
+
+    .yene-style-footer .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer responsive for small phones */
+    .yene-style-footer .footer-container {
+        grid-template-columns: 1fr; 
+    }
+    
+    .footer-brand {
+        grid-column: span 1; 
+    }
+    
+    .album-card {
+        width: 100%; /* Make cards full width on phones */
+    }
+}

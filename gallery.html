@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - My Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Added CSS specifically for the new dark footer -->
+    <style>
+        /* --- New Dark Footer Styles --- */
+        .gallery-footer {
+            background-color: #151515;
+            color: #ffffff;
+            padding-top: 50px;
+            margin-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 0 30px 50px 30px;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: #9ba1a6;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 90%;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: #9ba1a6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-bottom p {
+            color: #6c757d;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* Mobile Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-brand {
+                grid-column: span 2;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ambo University Photo Gallery</h1>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<main>
+    <section class="gallery-section">
+
+        <h2>Ambo University Photo Collections</h2>
+        <p>Select a collection to explore its pictures.</p>
+
+        <div class="album-container" id="albumContainer">
+
+            <div class="album-card">
+                <img src="images/photo_2026-10-31_14-02-40 (2).jpg" alt="Collection 1">
+                <h3>Ambo University Woliso Campus</h3>
+                <button type="button" onclick="openAlbum(1)">View Collection</button>
+            </div>
+
+            <div class="album-card">
+                <img src="images/photo_2026-11-02_22-33-42.jpg" alt="Collection 2">
+                <h3>HHC</h3>
+                <button type="button" onclick="openAlbum(2)">View Collection</button>
+            </div>
+
+            <div class="album-card">
+                <img src="images/photo_2026-11-03_00-19-21.jpg" alt="Collection 3">
+                <h3>Main Campus</h3>
+                <button type="button" onclick="openAlbum(3)">View Collection</button>
+            </div>
+
+        </div>
+
+        <!-- COLLECTION PHOTOS -->
+        <div id="albumView" style="display: none;">
+
+            <button class="back-button" type="button" onclick="closeAlbum()">
+                ← Back to Collections
+            </button>
+
+            <h2 id="albumTitle"></h2>
+
+            <div class="gallery" id="albumPhotos"></div>
+
+        </div>
+
+    </section>
+</main>
+
+<!-- FULLSCREEN PHOTO VIEWER -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+
+    <div class="lightbox-top" onclick="event.stopPropagation()">
+        <span id="photoCount"></span>
+        <button class="close" type="button" onclick="closeLightbox(event)">×</button>
+    </div>
+
+    <button class="prev" type="button" onclick="changePhoto(-1, event)">❮</button>
+
+    <img id="lightboxImage" src="" alt="Enlarged photo"
+         onclick="event.stopPropagation()">
+
+    <button class="next" type="button" onclick="changePhoto(1, event)">❯</button>
+
+    <div class="thumbnail-list" id="thumbnailList"
+         onclick="event.stopPropagation()"></div>
+</div>
+
+<!-- ================= NEW DARK FOOTER ================= -->
+<footer class="gallery-footer">
+    <div class="footer-container">
+        
+        <!-- Column 1 -->
+        <div class="footer-brand">
+            <h2>Ambo Gallery</h2>
+            <p>
+                Ambo University Photo Gallery connects you with beautiful moments and memories. Every photo is reviewed and organized into special collections for you to explore.
+            </p>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+            <h4>FOR VISITORS</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">All Photos</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+            <h4>COLLECTIONS</h4>
+            <ul>
+                <li><a href="gallery.html">Collection 1</a></li>
+                <li><a href="gallery.html">Collection 2</a></li>
+                <li><a href="gallery.html">Collection 3</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+            <h4>COMPANY</h4>
+            <ul>
+                <li><a href="about.html">About Gallery</a></li>
+                <!-- THIS IS THE CONTACT LINK YOU ASKED FOR -->
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="footer-bottom">
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
